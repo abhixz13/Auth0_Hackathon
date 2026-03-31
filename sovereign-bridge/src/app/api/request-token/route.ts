@@ -72,12 +72,28 @@ export async function POST(req: NextRequest) {
     
     const connection = connectionMap[service.toLowerCase()] || service;
 
-    // 3. For demo: simulate Token Vault response
-    // In production, this would call Auth0 Token Vault API:
-    // const tokenVaultResponse = await fetch(`${process.env.AUTH0_ISSUER_BASE_URL}/api/v2/token-vault/exchange`, { ... });
-    
-    const mockToken = `mock_token_${connection}_${Date.now()}`;
-    const expires_in = 300; // 5 minutes
+    // 3. Call Auth0 Token Vault for short-lived federated token
+    let federatedToken;
+    try {
+      federatedToken = await auth0.getAccessTokenForConnection({
+        connection,
+      });
+    } catch (tokenError: any) {
+      console.error('[request-token] Token Vault error:', tokenError);
+      
+      // Fallback to mock for demo if Token Vault not configured
+      if (tokenError.message?.includes('not found') || tokenError.message?.includes('not configured')) {
+        console.warn('[request-token] Token Vault not configured, using mock token for demo');
+        federatedToken = {
+          token: `mock_token_${connection}_${Date.now()}`,
+          expiresAt: Date.now() + 300 * 1000, // 5 minutes from now
+        };
+      } else {
+        throw tokenError;
+      }
+    }
+
+    const expires_in = Math.floor((federatedToken.expiresAt - Date.now()) / 1000);
 
     // 4. Log the request for dashboard
     const requestId = logTokenRequest({
@@ -90,9 +106,9 @@ export async function POST(req: NextRequest) {
     });
 
     return NextResponse.json({
-      token: mockToken,
+      token: federatedToken.token,
       expires_in,
-      expires_at: Date.now() + expires_in * 1000,
+      expires_at: federatedToken.expiresAt,
       request_id: requestId,
       message: `Token Vault issued short-lived token for ${agent_id}`,
       session_user: session.user.email || session.user.sub,
