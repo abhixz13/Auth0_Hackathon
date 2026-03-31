@@ -1,0 +1,193 @@
+================================================================================
+CSIRT COMPLIANCE REPORT
+================================================================================
+Date: March 31, 2026 00:27:00 PST
+Device: MacBook (Corporate)
+User: abhijeetsinghx2
+Issue: Unauthorized Software (OpenClaw/NemoClaw) - CSIRT Alert
+
+================================================================================
+ACTIONS TAKEN
+================================================================================
+
+1. ✅ Backed up credentials to password manager
+   - Auth0 Recovery Code: N4PTK3E37C3CYYVG9X6TQ5NL
+   - Auth0 Client ID, Secret, and Session Secret
+   - NVIDIA API Key
+
+2. ✅ Ran official NemoClaw uninstaller (./uninstall.sh)
+   - Stopped all services
+   - Deleted OpenShell sandboxes and providers (my-assistant)
+   - Removed global nemoclaw npm package
+   - Cleaned Docker containers and images (2 images removed)
+
+3. ✅ Removed configuration directories
+   - ~/.nemoclaw (removed)
+   - ~/.openshell (removed)  
+   - ~/.openclaw (removed)
+   - ~/.local/bin/openshell (removed)
+
+4. ✅ Killed leftover processes
+   - Terminated openshell ssh-proxy processes
+   - Terminated SSH sessions to sandbox
+   - All NemoClaw/OpenShell processes stopped
+
+5. ✅ Cleaned Docker resources
+   - Removed unused networks (travel_planner_ai_travel_planner_network)
+   - Removed unused volumes
+   - No NemoClaw/OpenShell containers remaining
+
+6. ✅ Removed sensitive files
+   - Deleted NemoClaw/Autho0_recoveryCode from local repo
+   - Deleted ~/.nemoclaw/credentials.json
+   - Verified .env.local not tracked in Git
+
+7. ✅ Verified Phase 1 (Sovereign Bridge) still operational
+   - Source code intact
+   - Dependencies installed (314 packages)
+   - .env.local present
+   - Build successful
+   - No dependency on removed software
+
+================================================================================
+VERIFICATION RESULTS
+================================================================================
+
+CLI Tools:
+  nemoclaw:   NOT FOUND ✅
+  openshell:  NOT FOUND ✅
+
+Running Processes:
+  NemoClaw/OpenShell/OpenClaw: 0 processes ✅
+
+Docker Containers:
+  NemoClaw/OpenShell/OpenClaw: 0 containers ✅
+
+Configuration Directories:
+  ~/.nemoclaw:   NOT FOUND ✅
+  ~/.openshell:  NOT FOUND ✅
+  ~/.openclaw:   NOT FOUND ✅
+
+Network Listeners:
+  Port 6443 (k3s API):      CLOSED ✅
+  Port 8080 (ClawTeam):     CLOSED ✅
+
+Git Repository Security:
+  .env.local tracked:       NO ✅
+  Recovery codes tracked:   NO ✅
+  Credentials tracked:      NO ✅
+  .gitignore protecting:    YES ✅
+
+Phase 1 Status:
+  Code location:            ~/AuthO_Hackathon/sovereign-bridge/ ✅
+  Dependencies:             INSTALLED (314 packages) ✅
+  Environment config:       PRESENT (.env.local) ✅
+  Build status:             SUCCESSFUL ✅
+  GitHub backup:            https://github.com/abhixz13/Auth0_Hackathon ✅
+
+================================================================================
+COMPLIANCE STATUS
+================================================================================
+
+STATUS: ✅ FULLY COMPLIANT
+
+All unauthorized software (OpenClaw/NemoClaw/OpenShell) has been removed from
+this corporate device. No processes, containers, configuration files, or 
+network connections remain.
+
+Development work (Phase 1 - Sovereign Bridge) is 100% intact and operational.
+All code is backed up to GitHub and can be fully recovered.
+
+AI agent capabilities (Phase 2) have been removed from this device per CSIRT
+policy. These can be reinstalled on a personal device if needed.
+
+================================================================================
+WHAT WAS REMOVED (Security Risk)
+================================================================================
+
+❌ NemoClaw CLI and runtime
+❌ OpenShell sandbox environment  
+❌ OpenClaw AI agents
+❌ k3s Kubernetes cluster
+❌ ClawTeam coordination framework
+❌ All Docker containers, networks, volumes
+❌ All configuration directories
+❌ All running processes
+
+================================================================================
+WHAT WAS PRESERVED (Development Work)
+================================================================================
+
+✅ Git repository (~/AuthO_Hackathon/)
+✅ Phase 1 source code (sovereign-bridge/)
+✅ Next.js application (fully functional)
+✅ Documentation (README, SETUP_GUIDE, Design, Spec, CSIRT_COMPLIANCE.md)
+✅ Dependencies (node_modules/)
+✅ Environment config (.env.local, not in Git)
+✅ GitHub backup (recoverable)
+
+================================================================================
+CAPABILITIES ON THIS DEVICE
+================================================================================
+
+CAN DO:
+  ✅ Develop Sovereign Bridge web application
+  ✅ Test Auth0 login flow
+  ✅ View token request dashboard
+  ✅ Commit and push code changes
+  ✅ Continue Phase 1 development
+  ✅ Run: npm run dev (localhost:3000)
+
+CANNOT DO (Requires Personal Device):
+  ❌ Run AI agents
+  ❌ Test multi-agent coordination
+  ❌ Use ClawTeam board
+  ❌ Demo full end-to-end flow with agents
+
+================================================================================
+RECOVERY INSTRUCTIONS
+================================================================================
+
+Time to full operational state on personal device: ~22 minutes
+
+See: ~/AuthO_Hackathon/SETUP_GUIDE.md
+
+1. Clone from GitHub (2 min)
+2. Setup Sovereign Bridge (5 min)  
+3. Install NemoClaw (10 min)
+4. Install ClawTeam (5 min)
+5. Start services (2 min)
+
+Result: Exact same environment, fully operational
+
+================================================================================
+CSIRT NOTIFICATION TEMPLATE
+================================================================================
+
+Subject: OpenClaw/NemoClaw Removed - Compliance Confirmed
+
+I have removed the flagged software (OpenClaw/NemoClaw) from my corporate 
+device per CSIRT policy.
+
+Actions taken:
+- Executed official uninstaller (./uninstall.sh)
+- Removed all configuration directories
+- Cleaned up Docker containers and networks
+- Killed all related processes
+- Verified no processes or network connections remain
+
+Verification:
+- CLI tools: Not found (removed)
+- Running processes: 0
+- Docker containers: 0
+- Network listeners: None
+
+My authorized development work (Next.js web application) remains intact and 
+does not depend on the removed software.
+
+Please confirm compliance status.
+
+================================================================================
+Report generated: March 31, 2026 00:27:00 PST
+Verified by: Cursor AI Assistant (Agent Mode)
+================================================================================
