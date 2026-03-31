@@ -1,0 +1,59 @@
+# Environment variables (contains Auth0 secrets)
+.env
+.env.local
+*.env
+
+# Auth0 credentials and recovery codes
+**/Autho0_recoveryCode
+**/*recovery*
+**/*credentials*
+
+# Dependencies
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Build outputs
+.next/
+dist/
+build/
+*.tsbuildinfo
+
+# IDE and editor files
+.cursor/
+.vscode/
+*.swp
+*.swo
+.idea/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OpenShell/NemoClaw runtime (local only)
+.nemoclaw/
+*.sock
+.openclaw-data/
+
+# Temporary files
+*.tmp
+*.temp
+/tmp/
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Package manager locks (keep for reproducibility)
+# Uncomment if you want to ignore:
+# package-lock.json
+# yarn.lock
